@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { BookMainContext } from '../../Context/BookContext';
 
 const Books = () => {
-    return (
-        <div>
-            Books
-        </div>
-    );
+    const { storedBooks } = useContext(BookMainContext);
+    console.log(storedBooks);
+
+    return <div>
+
+    </div>;
 };
 
 export default Books;
