@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { BookMainContext } from '../../Context/BookContext';
 
@@ -22,14 +22,14 @@ const BookDetails = () => {
     rating
     } = expectedBook;
 
-    const { handleMarkAsRead } = useContext(BookMainContext);
+    const { handleMarkAsRead, handleWishList } = useContext(BookMainContext);
 
   return (
     <div>
       <div className="card lg:card-side bg-base-100  container mx-auto grid grid-cols-2 items-start mt-10">
-          <figure className='flex justify-center items-center p-20 bg-gray-100 rounded-2xl w-full'>
-            <img src={image} alt={bookName} className='h-100 object-contain'/>
-          </figure>
+        <figure className="flex justify-center items-center p-20 bg-gray-100 rounded-2xl w-full">
+          <img src={image} alt={bookName} className="h-100 object-contain" />
+        </figure>
 
         <div className="card-body">
           <h2 className="card-title text-3xl font-bold">{bookName}</h2>
@@ -68,8 +68,18 @@ const BookDetails = () => {
             </div>
           </div>
           <div className="card-actions justify-start mt-5">
-            <button className="btn btn-none" onClick={()=>handleMarkAsRead(expectedBook)}>Mark as Read</button>
-            <button className="btn btn-accent text-white">Add to Wishlist</button>
+            <button
+              className="btn btn-none"
+              onClick={() => handleMarkAsRead(expectedBook)}
+            >
+              Mark as Read
+            </button>
+            <button
+              className="btn btn-accent text-white"
+              onClick={() => handleWishList(expectedBook)}
+            >
+              Add to Wishlist
+            </button>
           </div>
         </div>
       </div>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { Link } from 'react-router';
+import { BookMainContext } from '../../Context/BookContext';
 
 
 const Book = ({book}) => {
+    // const { readList, wishList } = useContext(BookMainContext);
+
     const {bookId, bookName, image, author, category, tags, rating} = book;
     return (
 
